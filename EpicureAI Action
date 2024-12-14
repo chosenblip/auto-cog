@@ -53,29 +53,6 @@
         }
       }
     },
-    "/favorite_recipes.json": {
-      "get": {
-        "summary": "Fetch favorite recipes",
-        "operationId": "getFavoriteRecipes",
-        "responses": {
-          "200": {
-            "description": "Successfully fetched favorite recipes",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "recipes": { "type": "object" }
-                  },
-                  "required": ["recipes"],
-                  "additionalProperties": true
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/kitchen_equipment.md": {
       "get": {
         "summary": "Fetch kitchen equipment list",
