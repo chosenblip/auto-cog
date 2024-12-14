@@ -1,0 +1,136 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "EpicureAI API",
+    "version": "1.0.0",
+    "description": "Fetch data files from the EpicureAI GitHub repository for dietary preferences, favorite meals, recipes, kitchen equipment, and pantry."
+  },
+  "paths": {
+    "/dietary_preferences.json": {
+      "get": {
+        "summary": "Fetch dietary preferences",
+        "operationId": "getDietaryPreferences",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched dietary preferences",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "style": { "type": "string" },
+                    "avoidances": { "type": "object" }
+                  },
+                  "required": ["style", "avoidances"],
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/favorite_meals.json": {
+      "get": {
+        "summary": "Fetch favorite meals",
+        "operationId": "getFavoriteMeals",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched favorite meals",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "recipes": { "type": "object" }
+                  },
+                  "required": ["recipes"],
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/favorite_recipes.json": {
+      "get": {
+        "summary": "Fetch favorite recipes",
+        "operationId": "getFavoriteRecipes",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched favorite recipes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "recipes": { "type": "object" }
+                  },
+                  "required": ["recipes"],
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kitchen_equipment.md": {
+      "get": {
+        "summary": "Fetch kitchen equipment list",
+        "operationId": "getKitchenEquipment",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched kitchen equipment",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pantry.json": {
+      "get": {
+        "summary": "Fetch pantry data",
+        "operationId": "getPantryData",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched pantry data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Oils and Condiments": { "type": "array", "items": { "type": "string" } },
+                    "Stocks and Broths": { "type": "array", "items": { "type": "string" } },
+                    "Dairy and Fats": { "type": "array", "items": { "type": "string" } },
+                    "Pickled Items": { "type": "array", "items": { "type": "string" } },
+                    "Grains, Pasta, and Mixes": { "type": "array", "items": { "type": "string" } },
+                    "Baking and Sweeteners": { "type": "array", "items": { "type": "string" } },
+                    "Snacks and Add-Ins": { "type": "array", "items": { "type": "string" } },
+                    "Vegetables and Onions": { "type": "array", "items": { "type": "string" } },
+                    "Instant and Convenience Foods": { "type": "array", "items": { "type": "string" } },
+                    "Canned Goods": { "type": "array", "items": { "type": "string" } }
+                  },
+                  "required": ["Oils and Condiments", "Stocks and Broths"],
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://raw.githubusercontent.com/chosenblip/EpicureAI/main",
+      "description": "GitHub Repository for EpicureAI"
+    }
+  ]
+}
